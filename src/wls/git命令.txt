@@ -1,0 +1,51 @@
+git init	--初始化仓库，生成.git文件
+
+#设计签名（项目级别/仓库级别），
+#项目级别,保存在.git/config里
+git config user.name ""
+git config user.email ""
+#仓库级别,保存在~/.gitconfig里	
+git config --global user.name ""
+git config --global user.email ""
+优先级：项目级别优先于仓库级别
+
+git status	--查看状态
+git add 文件名		--从本地工作区提交到本地仓库的缓存区（stage）
+git rm --cached <file>	--从缓存区移除<--cached保存文件，或使用-f强制删除>
+git commit <file>	--将本体仓库缓存区文件提交到仓库（master）
+git commit -m "msg" <file>
+git log 	--查看提交记录
+《
+	git log --pretty==oneline
+	git log --oneline
+	git reflog
+》
+
+版本前进和后退
+git reset --hard <hash索引> 
+git reset --hard HEAD^		--后退<一个^后退一步>
+git reser --hard HEAD~n		--后退n步
+
+比较文件差异
+git diff <file>		--比较工作区和暂存区文件
+git diff hash索引 <file>	--将工作区中的文件和本地库历史记录比较
+
+分支
+git branch -v 	--查看分支
+git branch <file>	--新建分支
+git checkout <file>	--切换到分支
+git merge <file>	--合并分支
+git branch -d <file>	--删除分支(应该切换到其他分支再执行删除)
+
+创建远程仓库地址别名
+git remote -v 		--查看当前所有远程地址别名
+git remote add <别名><远程地址>
+
+推送
+git push <别名><分支名>		--本地仓库推送到远程库
+git clone <远程地址>		--完整的把远程库下载到本地，还会创建origin 作为远程地址别名，初始化本地库
+
+拉取
+git pull <别名>/<分支名>
+注意：如果不是基于GitHub远程库的最新版所做的修改，不能推送，必须先拉取
+拉取下来后如果进入冲突状态，则按照“分支冲突解决”操作解决即可

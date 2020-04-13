@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script type="text/javascript">
+			/*
+				array遍历
+			*/
+			var arr = [{name:"张三", age: 18}, 
+			{name:"李四", age: 28},
+			{name:"王五", age: 38},
+			{name:"赵六", age: 48},
+			{name:"刘七", age: 8}
+			];
+			
+			function getArr(arr){
+				var p = []
+				for(var i = 0; i < arr.length; i++){
+					if(arr[i].age < 30){
+						p.push(arr[i]);
+					}
+				}
+				return p;
+			}
+			
+			var resultArr = getArr(arr);
+			console.log(resultArr);
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>
