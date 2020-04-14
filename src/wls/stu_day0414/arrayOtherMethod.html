@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			/*
+				1.concat() 连接两个数组，并不改变原始数组。
+			*/
+			var people = ["孙悟空", "猪八戒", "沙和尚"];
+			var monster = ["蜘蛛精", "白骨精", "玉兔精"];
+			var conPM = people.concat(monster);
+			console.log(conPM);
+			console.log(people);
+			
+			/*
+				2.join() 把数组中所有元素转成一个字符串，可以指定连接符。
+				不会改变原数组的值
+			*/
+		   var joinP = people.join("<>");
+		   console.log(joinP);
+		   //console.log(typeof joinP);
+		   console.log(people);
+		   /*
+				3.reverse() 翻转数组,  会直接修改原数组的值
+		   */
+			var reverseP = people.reverse();
+			console.log(people);
+			console.log(reverseP);
+			console.log(people == reverseP);
+			
+			/*
+				4.sort() 排序。默认按照unicode编码排序,  会直接修改原数组的值
+				·可以使用一个回调函数设置排序规则。
+			*/
+			var num = [11, 2, 4, 6, 9, 0, 5];
+			var sortNum = num.sort();
+			console.log(sortNum);
+			console.log(num);
+			
+			var sortNum2 = num.sort(function(a, b){
+				/* if(a > b){
+					return 1;
+				}else if(a < b){
+					return -1;
+				}else{
+					return 0; 
+				}
+				*/
+				return a-b;//升序时: 如果a>b，那么返回的值>0,a和b交换位置；
+				//return b - a; // 降序时: 如果b>a,那么返回的值>0,a和b交换位置；
+				/*-> 原理：return的值可能是一个大于0的数也或者可能是小于等于0的数，
+				如果return后的值大于0则让数组a和b交换一下位置；
+				小于等于0，则原来数组中的位置不变；
+				*/
+				//return  1; // 表示不管a和b谁大，每一次都返回一个恒大于0的数，也就是说每一次a和b都要交换位置，最后的结果就是原有数组倒过来排列了，相当于数组的reverse()方法;
+			})
+			console.log(sortNum2);
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
