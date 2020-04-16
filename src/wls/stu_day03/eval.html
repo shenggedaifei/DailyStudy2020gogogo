@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+		/*
+		 * eval把一段字符串传递给JS解释器，由Javascript解释器将这段字符串解释成Javascript代码，并且执行他。
+		 * 语法为 eval(string)。注意不要把String对象作为参数。
+		 */
+			/*document.write(eval("3+2"));
+			eval()*/
+			
+			//全局eval（）
+			/*
+			 * 通过别名调用时，eval会将其字符串当成顶层的全局代码来执行。
+			 * 
+			 */
+			var geval = eval;
+			var x = "global", y = "global";
+			function f(){
+				var x = "local";
+				eval("x += 'changed';");
+				return x;
+			}
+			
+			function g(){
+				var y = "local";
+				geval("y += 'changed';");
+				return y;
+			}
+			
+			console.log(f(), x);
+			console.log(g(), y);
+			
+			function foo(){
+				geval("var z = 10;");
+				//return z
+			}
+			foo()
+			console.log(z);
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

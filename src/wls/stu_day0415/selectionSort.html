@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script type="text/javascript">
+			function findSmallest(array){//查找数组中的最小元素
+				if(Array.isArray(array) == true){
+					smallest = array[0];	//存储最小值
+					smallest_index = 0; //存储最小元素的索引
+					for(var i = 1; i < array.length; i++){
+						if(array[i] < smallest){
+							smallest = array[i];
+							smallest_index = i;
+						}
+					}
+					return smallest_index;
+				}else{
+					return -1;
+				}
+			}
+			//debugger;
+			function selectionSort(array){
+				var newArr = [];
+				var length = array.length
+				for(var i = 0; i < length; i++){
+					smallest = findSmallest(array);
+					//newArr[i] = array.splice(smallest, 1).join("");
+					newArr.push(array[smallest]);
+					array.splice(smallest, 1);
+				}
+				return newArr
+			}
+			var arr = [1, 3, 5, 6, 8, 0, 3, 7, 11, 9, 2];
+			/* var result = findSmallest(arr);
+			console.log(result); */
+			
+			console.log(selectionSort(arr));
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

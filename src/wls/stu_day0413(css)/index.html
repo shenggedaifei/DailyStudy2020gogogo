@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			var searchTimeNum = 0;
+			function binarySearch(array, item){//返回该元素的下标
+				//debugger;
+				var low = 0;
+				var high = array.length - 1;
+				while(low <= high){
+					var mid = parseInt((low + high)/2);
+					var guess = array[mid];
+					if(guess == item){
+						return mid;
+					}else if(guess > item){
+						high = mid - 1;
+					}else{
+						low = mid + 1;
+					}
+					//searchTimeNum = 0;
+					searchTimeNum++;
+				}
+				return "NONE";
+			}
+
+			var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+			//arr.length
+			var searchIndex = binarySearch(arr, 3);
+			console.log(searchIndex);
+			console.log(searchTimeNum);
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

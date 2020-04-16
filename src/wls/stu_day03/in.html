@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			/*
+			 	js中in运算符左操作数是一个字符串或者可以转换为字符串，又操作符是一个对象。
+			 	常用于：
+			 		1.判断属性属于对象
+			 		
+			 		2.for in 遍历对象属性
+			 */   
+			 
+			var point = {
+				name: "张三",
+				age: 18,
+				gender:	"男"
+			}
+			if("张三" in point){
+				console.log("name是point的一个属性...");
+			}else{
+				console.log("point没有name这个属性...");
+			}
+			
+			for(var p in point){
+				console.log(p+":"+point[p]);
+			}
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

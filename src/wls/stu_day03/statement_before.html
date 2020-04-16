@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			var scope = "global";
+			function fun(){
+				foo();
+				console.log(scope);
+				var scope = "local";
+				console.log(scope);
+				function foo (){
+					console.log('foo');
+				}
+				return 'return value'
+			}
+			console.log('fun runing');
+			fun();
+			
+//			function fun1(){
+//				var scope ;
+//				function foo(){}
+//				console.log(scope);
+//				scope = 'local';
+//				return ;
+//			}
+//	function foo (){
+//		
+//		console.log("foo run");
+//		for(let i=0 ; i<10; i++ ) {
+//			let data = "foo index: " + i;
+//			bar(data);
+//		}
+//	}
+//	
+//	function bar(item){
+//		console.log('bar run...');
+//		console.log(item);
+//	}
+//	debugger;
+//	foo();
+
+
+//var obj = {
+//	name:'123',
+//	// var name = '112';
+//	
+//}
+
+var name='wlshp' ; 
+console.log(window.name);
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
