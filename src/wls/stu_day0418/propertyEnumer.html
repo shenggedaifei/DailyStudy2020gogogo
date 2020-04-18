@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			/*
+			 * 把P中可枚举属性复制到O中，并返回O
+			 */
+			/*function extend(o, p){
+				if(typeof o !== "object" || typeof p !== "object") throw TypeError();
+				for(prop in p){
+					o[prop] = p[prop];
+				}
+				return o;
+			}
+			p = {name: "name", age: "age", gender: "gender"};
+			p2 = 1;
+			o = {};
+			var pp = extend(o, p2);
+			console.log(pp);*/
+			
+			/*
+			 * 将p中可枚举属性复制到o中，并返回o；
+			 * 如果o和p中有同名属性，o中属性将不受影响；
+			 * 这个函数并不处理getter和setter以及复制属性。
+			 */
+			/*function merge(o, p ){
+				for (var prop in p) {
+					if (o.hasOwnProperty(prop)) {
+						continue;
+					}
+					o[prop] = p[prop];
+				}
+				return o;
+			}
+			var merge_p = {name: "张三", age: 18, gender: "男", school: "pzh"};
+			var merge_o = {name: "李四", age: 20, gender: "女"};
+			var oo = merge(merge_o, merge_p);
+			console.log(oo);*/
+			
+			/*
+			 * 如果o中的属性在p中没有同名属性，则从o中删除这个属性。
+			 */
+			
+			/*function restrict(o, p){
+				for (var prop in o) {
+					if (!(prop in p)) {
+						delete o[prop];
+					}
+				}
+				return o;
+			}
+			var res_p = {name: "张三", age: 18, gender: "男", school: "pzh"};
+			var res_o = {name: "李四", age: 20, gender: "女", home: "sc"};
+			var oo = restrict(res_o, res_p);
+			console.log(oo);*/
+			
+			/*
+			 * 如果o中的属性在p中存在同名属性，则从o中删除这个属性
+			 */
+			/*function subtract(o, p){
+				for (var prop in p) {
+					delete o[prop];
+				}
+				return o;
+			}
+			var sub_p = {name: "张三", age: 18, gender: "男", school: "pzh"};
+			var sub_o = {name: "李四", age: 20, gender: "女", home: "sc"};
+			var oo = subtract(sub_o, sub_p);
+			console.log(oo);*/
+			
+			/*
+			 * 返回一个数组，这个数组包含的是o中可枚举的自有属性的名字
+			 */
+			function keys(o){
+				if (typeof o !== "object") throw TypeError();
+				var result = [];
+				for (var prop in o) {
+					if (o.hasOwnProperty(prop)) {
+						result.push(prop);
+					}
+				}
+				return result;
+			}
+			
+			function depClone(o, p){
+				var modal = {
+					obj: "[object Object]",
+					arr: "[object Array]",
+					fun: "[object Function]",
+				};
+				if(typeof o !== "object" || typeof p !== "object") throw TypeError();
+				for(prop in p){
+					o[prop] = p[prop];
+					var ty = Object.prototype.toString.call(p[prop]);
+					switch(ty){
+						case modal.obj: 
+							// 递归拷贝;
+							o[prop] = arguments.callee({},p[prop]);
+							break
+						case modal.arr:
+						// 深度拷贝数组
+							o[prop] = Array.prototype.slice.call(p[prop],0);
+							break;
+						case modal.fun:
+						// 直接复制
+						default:
+						 o[prop] = p[prop];
+						 break;
+					}
+				}
+				return o;
+			}
+			
+			
+			// json 
+			function depCloneBest (p){
+				var temp = '';
+				var te = {}
+				try{
+					temp = JSON.stringify(p);
+					te = JSON.parse(temp);
+					for(let prop in te){
+						o[prop] = te[prop]
+					}
+				}
+				catch(e){
+					throw new Error('P has function cant JSON.stringif');
+				}
+			}
+			
+			var obj = {
+				name:'obj',
+				age:12,
+				father:{
+					name:'foo',
+					age:55
+				}
+			}
+			
+			var obq = extend({},obj);
+			console.log(obj,obq);
+			obq.name= 'obq';
+			console.log(obj,obq);
+			obj.father.name='zhangsan';
+			console.log(obj,obq);
+			
+			
+			
+			var Person = {
+				name: 'person',
+				age: '12'
+				getName(){
+					console.log(this.name);
+				}
+				getAge(){
+					console.log(this.age);
+				}
+			};
+			
+			
+			var man ={
+				name:'man',
+				age:33,
+			};
+			
+			// es 的继承方式
+			
+			man.prototype = Person;
+			man.getName();
+			
+			var wls = extend({},man);
+			wls.getName();
+			
+			
+			
+			
+			
+			
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
