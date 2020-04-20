@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			/*function quickSort(array){//快排方法一
+				if (array.length < 2) {
+					return array;
+				} else{
+					var pivot = array[0];
+					var less = [];
+					var more = [];
+					for (var i = 1; i < array.length; i++) {
+						if (array[i] <= pivot) {
+							less.push(array[i]);
+						} else{
+							more.push(array[i]);
+						}
+					}
+					return quickSort(less).concat([pivot],quickSort(more));
+				}
+			}
+			
+			var arr = [3, 4, 1, 4, 6, 2];
+			var result = quickSort(arr);
+			console.log(Array.isArray(result));*/
+			
+			//快排方法二
+			function quickSort(array, startIndex, endIndex){
+				//递归结束条件：startIndex>=endIndex
+				if (startIndex >= endIndex) {
+					return ;
+				}
+				//得到基准元素的位置
+				var pivotIndex = partition(array, startIndex, endIndex);
+				//根据基准元素，分成两部分进行递归排序
+				quickSort(array, startIndex, pivotIndex - 1);
+				quickSort(array, pivotIndex + 1, endIndex);
+			}
+			
+			/*
+			 * 分治（双边循环法）
+			 */
+			function partition(array, startIndex, endIndex){
+				//debugger;
+				//取第一个位置的元素作为基准元素
+				var pivot = array[startIndex];
+				var left = startIndex;
+				var right = endIndex;
+				while (left != right){
+					//控制right指针比较 并左移
+					while (left < right){
+						if (array[right] >= pivot) {
+							right--;
+						} else{
+							var temp = array[left];
+							array[left] = array[right];
+							array[right] = temp;
+							break;
+						}
+					}
+					//控制left指针比较  并右移
+					while (left < right){
+						if(array[left] <= pivot){
+							left++;
+						}else{
+							temp = array[right];
+							array[right] = array[left];
+							array[left] = temp;
+							break;
+						}
+					}
+					//交换left和right指针所指向的元素
+					
+					/*if (left < right) {
+						var p = array[left];
+						array[left] = array[right];
+						array[right] = p;
+					}*/
+				}
+				
+				/*array[startIndex] = array[left];
+				array[left] = pivot;*/
+				return left;
+			}
+			
+			var arr = [3, 2, 4, 9, 1, 9, 6, 2];
+			quickSort(arr, 0, arr.length-1);
+			console.log(arr);
+		</script>
+		
+		
+		
+		
+		
+		
+	</head>
+	<body>
+	</body>
+</html>
