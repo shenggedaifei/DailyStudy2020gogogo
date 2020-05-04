@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/*
+			 * map()方法创建一个新数组，其结果是该数组中的每个元素都调用一次提供的函数后的返回值。
+			 * 语法：arr.map(function callback(value, index, array)， thisArg)
+			 * 参数：thisArg:执行 callback 函数时值被用作this
+			 * 返回值：回调函数的结果组成了新数组的每一个元素。
+			 * map()会生成一个新数组，当不适用返回值时就不建议使用map(),可以用forEach或者for-of替代
+			 */
+			
+			//1. 使用map重新格式化数组中的对象
+			var kvArray = [{key: 1, value: 10}, 
+			               {key: 2, value: 20}, 
+			               {key: 3, value: 30}];
+			var re = kvArray.map(function(obj){
+				var robj = [];
+				robj[obj.Key] = obj.value;
+				return robj;
+			})
+			console.log(re instanceof Array)
+			console.log(re);
+		</script>
+	</body>
+</html>

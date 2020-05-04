@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/*
+			 * Array.prototype.forEach()
+			 * forEach(function callback(value, index, array){})遍历数组
+			 */
+			//使用forEach时数组值被修改了，迭代结果会有影响
+			var arr = ['one', 'two', 'three', 'four'];
+			arr.forEach(function(value){
+				/*if(value === 'two'){
+					arr[1] = 'TWO';
+				}*/
+				//arr.push("five")
+				//arr.pop();
+				console.log(value);
+			})
+		</script>
+	</body>
+</html>

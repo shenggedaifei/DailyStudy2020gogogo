@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/*
+			 * for...of语句在迭代对象(Array、Map、Set、String、TypedArray、arguments等对象)上创建一个迭代循环，调用自定义迭代钩子，并为每个不同属性得值执行语句
+			 * 语法：for(variable of iterable){}
+			 * 参数：iterable，迭代对象
+			 */
+			
+			//1.迭代Array
+			let iterable = [10, 20, 30];
+			for (let value of iterable) {
+				console.log(value);
+			}
+			
+			//2.迭代String
+			let str = "boob";
+			for (let value of str) {
+				console.log(value);
+			}
+			
+			//3.迭代TypedArray
+			let ta = new Uint8Array([0x00, 0xff]);
+			for (let value of ta) {
+				console.log(value);
+			}
+			
+			//4. 迭代Map
+			let mp = new Map([["a", 1], ["b", 2], ["c", 3]]);
+			for (let entry of mp) {
+				console.log(entry);
+			}
+			
+			//5. 迭代Set
+			let st = new Set([1, 1, 2, 2, 3, 3]);
+			for (let value of st) {
+				console.log(value);
+			}
+			/*
+			 * for...of 和 for... in的区别：
+			 * 	for...of语句遍历可迭代对象定义要迭代的数据。
+			 * 	for...in语句以任意顺序迭代对象的可枚举属性。
+			 */
+		</script>
+	</body>
+</html>
