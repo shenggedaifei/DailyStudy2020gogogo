@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			/*
+			 * call()和apply():
+			 * 	这两个方法都是函数对象的方法，需要通过函数对象来调用。
+			 * 	调用时，第一个参数传一个对象，这个对象就会成为函数执行时的this
+			 * 
+			 * call()和apply()区别：
+			 * 	call()方法可以将实参在对象之后依次传递
+			 * 	apply()方法需要将实参封装到一个数组中统一传递。
+			 * 
+			 * 
+			 * this的情况：
+			 * 		1.以函数形式调用时，this永远都是window
+			 * 		2.以方法的形式调用时，this是调用方法的对象；
+			 * 		3.以构造函数的形式调用时，this是实例对象；
+			 * 		4。使用call()和apply()调用时，this是指向的那个对象；
+			 */
+			
+			function fun (){
+				
+			}
+			var obj = {}
+			fun.call(obj);
+		</script>
+		<script type="text/javascript">
+			/*
+			 * this的指向（MDN补充）：
+			 */
+			//1. 在全局环境中，this都指向window
+			console.log(this === window);
+			a = 37;
+			console.log(window.a);
+			console.log(this.a);
+			
+			this.b = "MDN";
+			console.log(window.b)
+			console.log(b);
+			
+			//2. 函数内部的this，就取决于函数被调用的方式。
+			//如果要想指定this指向，那就要用到call()和apply()
+			function add(c, d){
+				return this.a + this.b + c + d;
+			}
+			//console.log(window.add(1, 2));
+			//console.log(add(1, 2));
+			//call()
+			var o = {a:1, b:2};
+			console.log(add.call(o, 3, 4));
+			//apply()
+			console.log(add.apply(o, [3, 4]));
+			//注意：如果传递的第一个参数不是对象，js会尝试使用内部ToObject操作将其转化为对象。
+			function bar(){
+				console.log(Object.prototype.toString.call(this));
+			}
+			bar.call(7);
+			
+			//bind方法:调用f.bind(someObject)会创建一个与f具有相同函数体和作用域的函数，但是在这个新函数中，this将永久地被绑定到了bind的第一个参数，无论这个函数是如何被调用的。
+			function f(){
+				return this.a;
+			}
+			var obj = {a: 'abc'};
+			var g = f.bind(obj);
+			console.log(g());
+			
+			var h = g.bind({a: 'hhh'});//bind只会生效一次
+			console.log(h());
+			
+			//箭头函数：在箭头函数中，this与封闭词法环境的this保持一致。在全局代码中，它将被设置为全局对象：
+			
+			//作为对象的方法：当函数作为对象里的方法被调用时，它们的 this 是调用该函数的对象。
+			var o = {
+				prop: 37,
+				f: function(){
+					var prop = 1;
+					return this.prop;
+				}
+			};
+			console.log(o.f());
+			
+			//原型链中的this:对于在对象原型链上某处定义的方法，同样的概念也适用。如果该方法存在于一个对象的原型链上，那么this指向的是调用这个方法的对象，就像该方法在对象上一样。
+			var o = {
+				f: function(){
+					return this.a + this.b;
+				}
+			};
+			var p = Object.create(o);
+			p.a = 1;
+			p.b = 4;
+			console.log(p.f());
+			
+			//getter与setter中的this:当函数在一个 getter 或者 setter 中被调用。用作 getter 或 setter 的函数都会把 this 绑定到设置或获取属性的对象。
+			function sum(){
+				return this.a + this.b + this.c;
+			}
+			
+			var o={
+				a: 1,
+				b: 2,
+				c: 3,
+				get average(){
+					return (this.a + this.b + this.c) / 3;
+				}
+			};
+			Object.defineProperty(o, 'sum', {get: sum, enumerable: true, configurable: true});
+			console.log(o.average, o.sum);
+			
+			//作为构造函数：当一个函数用作构造函数时（使用new关键字），它的this被绑定到正在构造的新对象。
+			
+			//作为DOM事件处理函数：当函数被用作事件处理函数时，它的this指向触发事件的元素（一些浏览器在使用非addEventListener的函数动态添加监听函数时不遵守这个约定）。
+			
+			//作为内敛事件处理函数：当代码被内联on-event 处理函数调用时，它的this指向监听器所在的DOM元素：
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
