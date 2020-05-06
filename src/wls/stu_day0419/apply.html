@@ -6,4 +6,19 @@
 	</head>
 	<body>
 	</body>
+	<script type="text/javascript">
+		/*
+		 * Function.prototype.apply()
+		 */
+		
+		//用apply将数组添加到另一个数组
+		/*
+		 * 我们可以使用push将元素追加到数组中。并且，因为push接受可变数量的参数，我们也可以一次推送多个元素。但是，如果我们传递一个数组来推送，它实际上会将该数组作为单个元素添加，而不是单独添加元素，因此我们最终得到一个数组内的数组。如果那不是我们想要的怎么办？在这种情况下，concat确实具有我们想要的行为，但它实际上并不附加到现有数组，而是创建并返回一个新数组。 但是我们想要附加到我们现有的阵列......那么现在呢？ 写一个循环？当然不是吗？
+		 */
+		var arr = ['a', 'b'];
+		var ele = [0, 1, 2];
+		arr.push.apply(arr, ele);
+		console.info(arr);
+		console.log(arr);
+	</script>
 </html>
