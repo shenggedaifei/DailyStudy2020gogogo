@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script>
+		/*
+		 * indexOf()和lastIndexOf()：方法返回在数组中可以找到一个给定元素的第一个索引，如果不存在，则返回-1。
+		 */
+		
+		function updateVegetablesCollection (veggies, veggie) {
+		    if (veggies.indexOf(veggie) === -1) {
+		        veggies.push(veggie);
+		        console.log('New veggies collection is : ' + veggies);
+		    } else if (veggies.indexOf(veggie) > -1) {
+		        console.log(veggie + ' already exists in the veggies collection.');
+		    }
+		}
+
+			var veggies = ['potato', 'tomato', 'chillies', 'green-pepper'];
+			
+			// New veggies collection is : potato,tomato,chillies,green-papper,spinach
+			updateVegetablesCollection(veggies, 'spinach'); 
+			// spinach already exists in the veggies collection.
+			updateVegetablesCollection(veggies, 'spinach'); 
+	</script>
+</html>
