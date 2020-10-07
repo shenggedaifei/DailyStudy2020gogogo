@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./lib/vue.js"></script>
+    <script src="./lib/vue-resource-1.3.4.js"></script>
+</head>
+<body>
+    <div id="app">
+        <input type="button" value="get请求" @click="getInfo">
+    </div>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+
+            },
+            methods: {
+                getInfo(){//发起get请求
+                    this.$http.get('https://www.huya.com/').then(function(result){//发起get请求后，通过then设置回掉函数
+                        console.log(result)
+                    },function(){
+                        console.log('error')
+                    })
+                }
+            }
+        })
+    </script>
+</body>
+</html>

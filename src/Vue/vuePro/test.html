@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var w = window.open('page.html', 'newPage', 'width=150,height=150')
+        //w.alert('hello')
+        w.parent.alert('子窗口调用父窗口')
+    </script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./lib/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div id = 'ts'>{{ msg }}</div>
+        <input type="button" value="修改" @click="msg = 'No'">
+    </div>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                msg: 'ok'
+            },
+            methods: {
+                show(){
+                    console.log('show....')
+                }
+            },
+            //实例创建阶段，生命周期函数
+            beforeCreate(){//在这个钩子函数执行时，data和methods中的数据都还没有初始化。
+                //console.log(this.msg)
+                //this.show()
+            },
+            created(){//在这个钩子函数中，data和methods都已经被初始化好了。
+                console.log(this.msg)
+                this.show()
+            },
+            beforeMount () {//到这个钩子函数，表示模板已经在内存中编辑好了，但尚未渲染到页面中
+                console.log(document.getElementById('ts').innerHTML)    
+            },
+            mounted () {//到这个钩子函数时，内存中的模板已经挂在到页面，用户可以看到渲染后的效果了
+            //这是实例创建期间的最后一个生命周期函数。
+                console.log(document.getElementById('ts').innerHTML) 
+            },
+            //实例运行阶段
+            beforeUpdate () {//当data上的数据改变时，就会触发。但此时页面数据都还没更新。
+                console.log('界面上元素的内容' + document.getElementById('ts').innerHTML)
+                console.log('data中的msg值' + this.msg)
+            },
+            updated () {//到这一个钩子函数时，已经完成从最新内存DOM树渲染到页面。此时页面和data数据保持同步，都是最新的数据
+                console.log('界面上元素的内容' + document.getElementById('ts').innerHTML)
+                console.log('data中的msg值' + this.msg)
+            },
+            //实例销毁阶段
+            beforeDestroy () {//当执行到该钩子函数时，Vue实例就开始销毁，但还没真正销毁，data、methods等都还可以用
+                
+            },
+            destroyed () {//当执行到该钩子函数时，实例完全销毁，
+                
+            }
+        })
+    </script>
+</body>
+</html>

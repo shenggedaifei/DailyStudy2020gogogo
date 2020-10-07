@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="./vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <my-component></my-component>
+    </div>
+    <script>
+      //1.Vue.extend
+      //2.创建组件
+      Vue.component(
+        "my-component",
+        Vue.extend({
+          //创建组件模板对象
+          template: "<h1>第一种Complate创建方法</h1>", //这个属性指定组件展示的HTML结构
+        })
+      );
+
+      var vm = new Vue({
+        el: "#app",
+      });
+    </script>
+  </body>
+</html>

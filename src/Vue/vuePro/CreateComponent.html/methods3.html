@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="./vue.js"></script>
+  </head>
+  <body>
+    <template id="tmp1">
+      <div>
+        <!-- Component template should contain exactly one root element. 
+            template里面只能有一个根元素。所以都包在了div里面
+        -->
+        <h1>
+          这是通过template元素，在外部定义的组件结构，这个方法，有代码的智能提示和高亮
+        </h1>
+      </div>
+    </template>
+    <div id="app">
+      <div id="tmp">================</div>
+    </div>
+    <script>
+      var vm = new Vue({
+        el: "#app",
+        data: {},
+        component: {
+          template: "#tmp",
+        },
+      });
+    </script>
+  </body>
+</html>
