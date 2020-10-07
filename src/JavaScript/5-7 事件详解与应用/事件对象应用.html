@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #tx{
+            width: 70px;
+            height: 70px;
+            position: absolute;
+            margin-top: 1000px;
+        }
+    </style>
+</head>
+<body>
+    <img src="./img/touxiang.png" alt="糟糕！图片消失了." id="tx">
+    <script>
+        var ts = document.getElementById("tx");
+        document.onmousemove = function(e){
+            var e = e || window.event;
+            // ts.style.left = e.clientX-30 + "px";
+            // ts.style.top = e.clientY -30 + "px";
+            //当出现滚动条时，用client定位就会出现偏差
+            ts.style.left = e.pageX-10 + "px";//IE9以后才支持pageX和pageY
+            ts.style.top = e.pageY-10 + "px";
+        }
+    </script>
+</body>
+</html>

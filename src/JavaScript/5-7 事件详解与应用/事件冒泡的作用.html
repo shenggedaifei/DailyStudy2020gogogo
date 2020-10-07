@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="ul">
+        <li>西施</li>
+        <li>貂蝉</li>
+        <li>王昭君</li>
+        <li>杨玉环</li>   
+    </ul>
+    <script>
+        //事件冒泡的作用就是事件委托。
+        var ul = document.getElementById('ul')
+        ul.onclick = function(e){//e是一个事件对象，当事件发生时，可以获取一些与事件相关的参数
+            console.dir(e);
+            console.log(e.target);//target属性就是表示触发事件的对象。
+            e.target.style.backgroundColor = 'red';
+        }
+    </script>
+</body>
+</html>

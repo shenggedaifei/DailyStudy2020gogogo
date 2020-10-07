@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box table,th,td{
+            border-collapse: collapse;
+            width: 400px;
+            border: 1px solid black;
+            text-align: center;
+        }
+        thead tr{
+            height: 40px;
+            background-color: lightgray;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    <script>
+        var stu = [
+            {name: 'zs', subject: '语文', score: 90},
+            {name: 'ls', subject: '数学', score: 90},
+            {name: 'ww', subject: '英语', score: 90},
+            {name: 'zl', subject: '英语', score: 90},
+            {name: 'xs', subject: '英语', score: 90},
+            {name: 'dc', subject: '语文', score: 90}
+        ]
+        var theadData = ['姓名', '科目', '成绩', '操作']
+        //创建表格
+        var box = document.getElementById('box');
+        var table = document.createElement('table');
+        //table.style.border = '1px'
+        box.appendChild(table);
+        //创建表头
+        var thead = document.createElement('thead');
+        table.appendChild(thead);
+        var tr = document.createElement('tr');
+        thead.appendChild(tr);
+        for (let index = 0; index < theadData.length; index++) {
+            var th = document.createElement('th');
+            tr.appendChild(th);
+            th.innerText = theadData[index];
+        }
+        //创建表体
+        var tbody = document.createElement('tbody');
+        table.appendChild(tbody);
+        for (let index = 0; index < stu.length; index++) {
+            tr = document.createElement('tr');
+            tbody.appendChild(tr);
+            for (var key in stu[index]) {
+                var td = document.createElement('td');
+                tr.appendChild(td);
+                td.innerText = stu[index][key];
+            }
+            td = document.createElement('td');
+            tr.appendChild(td);
+            var link = document.createElement('a');
+            td.appendChild(link);
+            link.href='javascript:void(0)'
+            link.innerText = '删除'
+        }
+    </script>
+</body>
+</html>

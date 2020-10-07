@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="button" value="点击" id="btn">
+    <script>
+        /**
+         * Location对象是window对象的一个属性。
+         */
+        console.dir(location);
+
+        var btn = document.getElementById("btn");
+        btn.onclick = function () {
+            //常用属性.href
+            console.log(location.href);//整个URL地址
+            console.log(location.protocol)//协议，注意的是有一个‘：’
+            console.log(location.host);//host、hostname、port 域名 端口
+            console.log(location.pathname);//路径
+            //search 参数  hash 标识符  username password
+
+            //常用方法assign()、reload()、replace()
+            //assign()作用和href一样，可以让页面跳转到指定的地方
+            location.assign("http://www.huya.com")
+
+            //reload()重新加载，有个Boolean参数。
+            //true：强制从服务器加载数据。false：可能从缓存加载页面
+            location.reload(true);
+
+            //replace()替换当前URL，不能后退
+            location.replace("http://www.douyu.com");
+        }
+    </script>
+</body>
+
+</html>

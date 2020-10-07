@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0px;
+        }
+        #box{
+            width: 100px;
+            height: 100px;
+            margin: 50px;
+            border: 10px solid red;
+            padding: 10px;
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    <script>
+        var box = document.getElementById("box");
+        //表示边框大小
+        console.log(box.clientTop);//10
+        console.log(box.clientLeft);//10
+        //表示box位置，但是不包括border大小
+        console.log(box.clientHeight);//120
+        console.log(box.clientWidth);//120
+    </script>
+</body>
+</html>

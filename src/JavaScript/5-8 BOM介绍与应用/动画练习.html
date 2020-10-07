@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0px;
+        }
+
+        #box {
+            position: relative;
+            background-color: red;
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="button" value="开始" id="btn">
+    <div id="box"></div>
+    <script>
+        var btn = document.getElementById("btn");
+        var box = document.getElementById("box");
+        btn.onclick = function () {
+            var target = 500;
+            var step = 5;
+            var timeId = setInterval(() => {
+                if (box.offsetLeft >= target) {
+                    clearInterval(timeId);
+                    box.style.left = target;
+                }
+                box.style.left = box.offsetLeft + step + "px";
+            }, 30);
+        }
+    </script>
+</body>
+
+</html>

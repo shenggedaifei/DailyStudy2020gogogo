@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0px;
+            padding: 0px;
+        }
+        #tip{
+            width: 130px;
+            height: 50px;
+            background-color: cornflowerblue;
+            opacity: 0.5;
+            margin: 200px auto;
+            padding-top: 5px;
+            text-align: center;
+            color: red;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <input type="button" value="删除" id="btn">
+    <div id="tip">删除成功</div>
+    <script>
+        var btn = document.getElementById("btn");
+        btn.onclick = function(){
+            var tip = document.getElementById("tip");
+            tip.style.display = "block";
+            setTimeout(() => {
+                tip.style.display = "none";
+            }, 3000);
+        }
+    </script>
+</body>
+</html>

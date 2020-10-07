@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+            list-style: none;
+            border: 0px;
+        }
+        .all{
+            width: 500px;
+            height: 200px;
+            padding: 7px;
+            border: 1px solid #cccccc;
+            margin: 100px auto;
+            position: relative;
+        }
+        .screen{
+            width: 500px;
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+        .screen li{
+            width: 500px;
+            height: 200px;
+            overflow: hidden;
+            float: left;
+        }
+        .screen ul{
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            width: 3000px;
+        }
+        .all ol{
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+            line-height: 20px;
+            text-align: center;
+        }
+        .all ol li{
+            float: left;
+            width: 20px;
+            height: 20px;
+            background: #ffffff;
+            border: 1px solid #cccccc;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+        .all ol li.current{
+            background: yellow;
+        }
+        #arr {
+            display: none;
+            z-index: 1000;
+        }
+        #arr span{
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            left: 5px;
+            top: 50%;
+            margin-top: -20px;
+            background: #000000;
+            cursor: pointer;
+            line-height: 40px;
+            text-align: center;
+            font-weight: bold;
+            font-family: '黑体';
+            font-size: 30px;
+            color: #ffffff;
+            opacity: 0.3;
+        }
+        #arr #right{
+            right: 5px;
+            left: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="all" id="box">
+        <div class="screen">
+            <ul>
+                <li><img src="C:Users\Administrator\Desktop\DailyStudying\js\5-9 offset-client-scroll三大家\轮播图Image\g1.jpg" width="500" height="200" alt=""></li>
+                <li><img src="C:\Users\Administrator\Desktop\DailyStudying\js\5-9 offset-client-scroll三大家\轮播图Image\g2.jpg" width="500" height="200" alt=""></li>
+                <li><img src="C:\Users\Administrator\Desktop\DailyStudying\js\5-9 offset-client-scroll三大家\轮播图Image\g3.jpg" width="500" height="200" alt=""></li>
+                <li><img src="C:\Users\Administrator\Desktop\DailyStudying\js\5-9 offset-client-scroll三大家\轮播图Image\g4.jpg" width="500" height="200" alt=""></li>
+                <li><img src="C:\Users\Administrator\Desktop\DailyStudying\js\5-9 offset-client-scroll三大家\轮播图Image\g5.jpg" width="500" height="200" alt=""></li>
+            </ul>
+            <ol></ol>
+        </div>
+        <div id="arr"><span id="left">&lt;</span><span id="right">&gt;</span></div>
+    </div>
+</body>
+<script src="./common.js"></script>
+<script src="./animate.js"></script>
+<script src="./carousel.js"></script>
+</html>

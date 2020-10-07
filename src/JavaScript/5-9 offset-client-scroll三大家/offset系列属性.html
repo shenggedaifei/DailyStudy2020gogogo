@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0px;
+        }
+        #box{
+            width: 300px;
+            height: 300px;
+            background-color: red;
+            margin: 50px;
+            overflow: hidden;
+            position: relative;
+        }
+        #child{
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            margin: 50px;
+            border: 10px solid yellow;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <div id="child"></div>
+    </div>
+    <script>
+        var box = document.getElementById("box");
+        //box的坐标
+        console.log(box.offsetLeft);
+        console.log(box.offsetTop);
+        //box大小
+        console.log(box.offsetHeight);
+        console.log(box.offsetWidth);
+
+        var child = document.getElementById("child");
+        //child的坐标
+        console.log(child.offsetLeft);//100
+        console.log(child.offsetTop);//100
+        console.log(child.offsetParent)
+    </script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a id="link" href="https://www.huya.com/l">虎牙直播</a>
+    <script>
+        var link = document.getElementById("link");
+        link.onclick = function(e){
+            alert("学习完才能看直播哦。")
+            //DOM标准方法
+            e.preventDefault();
+            //老版本IE
+            //e.returnValue = false;
+        }
+    </script>
+</body>
+</html>

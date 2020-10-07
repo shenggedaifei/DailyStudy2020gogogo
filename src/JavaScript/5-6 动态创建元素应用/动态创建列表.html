@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" value="button" id="btn">
+    <div id="box"></div>
+    <script>
+        var btn = document.getElementById('btn');
+        btn.onclick = function (){
+            var box = document.getElementById('box');
+            var datas = ['貂蝉', '西施', '王昭君', '杨玉环']
+            var ul = document.createElement('ul');
+            box.appendChild(ul);
+            for (let index = 0; index < datas.length; index++) {
+                var data = datas[index];
+                var li = document.createElement('li');
+                ul.appendChild(li);
+                li.innerText = data;
+                li.onmouseover = liMouseOver;
+                li.onmouseout = liMouseOut;
+            }
+        }
+        function liMouseOver(){
+            //鼠标经过高亮显示；
+            this.style.backgroundColor = 'red';
+        }
+        function liMouseOut(){
+            //鼠标离开取消高亮；
+            this.style.backgroundColor = '';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #clock {
+        font: bold 24pt sans;
+        background: #ddddff;
+        padding: 10px;
+        border: solid black 2px;
+        border-radius: 10px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>从时钟中拖出时间戳</h1>
+    <span id="clock"></span>
+    <!--时间显示在这里-->
+    <textarea name="" id="" cols="60" rows="20"></textarea>
+    <!--时间戳放在这里-->
+  </body>
+  <script src="./whenReady.js"></script>
+  <script>
+    whenReady(function () {
+      var clock = document.getElementById("clock");
+      var icon = new Image(); //用于拖动的图片
+      icon.src = "clock-icon-png"; //图片的URL
+
+      //每分钟显示一次时间
+      function displayTime() {
+        var now = new Date(); //当前时间
+        var hrs = now.getHours();
+        var mins = now.getMinutes();
+        if (mins < 10) mins = "0" + mins;
+        clock.innerHTML = hrs + ":" + mins; //显示当前时间
+        setTimeout(displayTime, 6000); //一分钟运行一次
+      }
+      displayTime();
+      //使时钟能够拖动，也能通过draggable属性实现
+      clock.draggable = true;
+
+      //设置拖动事件处理程序
+      clock.ondragstart = function (e) {
+        var e = e || window.event; //用于IE兼容性
+        //dataTransfer属性是拖放API的关键
+        var dt = e.dataTransfer;
+
+        //告诉浏览器正在拖动什么。把Date()构造函数用做一个返回时间戳字符串的函数
+        dt.setData("Text", Date() + "\n");
+        //在支持的浏览器中，告诉它拖动图标来表现时间戳
+        if (dt.setDragImage) dt.setDragImage(icon, 0, 0);
+      };
+    });
+  </script>
+</html>

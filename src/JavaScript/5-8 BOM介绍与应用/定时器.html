@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" value="开始" id="btn1">
+    <input type="button" value="取消" id="btn2">
+    <script>
+        var btn1 = document.getElementById("btn1");
+        var timeoutId;
+        btn1.onclick = function(){
+            /**
+             * 返回一个整数，是定时器的标识。
+             * 把这个值传给clearTimeout可以取消定时器
+             */ 
+            timeoutId = setTimeout(function(){//setTimeout只运行一次
+                console.log("setTimeout运行...")
+            }, 3000);
+        }
+        var btn2 = document.getElementById("btn2");
+        btn2.onclick = function(){
+            clearTimeout(timeoutId);
+            console.log(timeoutId);
+        }
+    </script>
+</body>
+</html>

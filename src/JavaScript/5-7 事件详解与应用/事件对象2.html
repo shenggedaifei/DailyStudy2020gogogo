@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            padding: 0px;
+        }
+        #box{
+            margin: 50px;
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    <script>
+        var btn = document.getElementById("box");
+        btn.onclick = fn;
+        btn.onmouseout = fn;
+        btn.onmouseover = fn;
+
+        function fn(e){
+            var e = e || window.event;
+            switch(e.type){//返回事件类型
+                case 'click':
+                console.log("点击box");
+                break;
+                case 'mouseover':
+                console.log("鼠标经过box");
+                break;
+                case 'mouseout':
+                console.log("鼠标离开box");
+                break;
+            }
+        }
+    </script>
+</body>
+</html>

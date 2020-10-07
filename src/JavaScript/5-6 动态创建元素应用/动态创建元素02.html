@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" value="btn" id="btn">
+    <div id="div"></div>
+</body>
+<script>
+    //element.innerHTML动态创建元素
+    var btn = document.getElementById("btn");
+    btn.onclick = function() {
+        // var div = document.getElementById('div');
+        // let girl = ['貂蝉', '王昭君', '杨玉环', '西施'];
+        // div.innerHTML = '<ul>'
+        // for (let g = 0; g < girl.length; g++) {
+        //     var data = girl[g];
+        //     div.innerHTML += '<li>' + data +'</li>'
+        // }
+        // div.innerHTML += '</ul>'
+        
+        //innerHTML需要执行好几次，所以需要优化
+        // var div = document.getElementById('div');
+        // let girl = ['貂蝉', '王昭君', '杨玉环', '西施'];
+        // str = '<ul>'
+        // for (let g = 0; g < girl.length; g++) {
+        //     var data = girl[g];
+        //     str += '<li>' + data +'</li>'
+        // }
+        // str += '</ul>';
+
+        // div.innerHTML = str
+
+        //因为字符串不可变，每次拼接字符串是需要重新开辟内存，时间浪费大，需要再次优化。
+        var array = [];
+        var div = document.getElementById('div');
+        let girl = ['貂蝉', '王昭君', '杨玉环', '西施'];
+        array.push('<ul>')
+        for (let g = 0; g < girl.length; g++) {
+            var data = girl[g];
+            array.push('<li>' + data +'</li>');
+        }
+        array.push('</ul>');
+        div.innerHTML = array.join("");
+    }
+</script>
+</html>

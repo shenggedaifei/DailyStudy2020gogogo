@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box1{
+            width: 180px;
+            height: 150px;
+            background-color: rgb(20, 144, 175);
+        }
+        #box2{
+            width: 150px;
+            height: 130px;
+            background-color: rgb(28, 63, 216);
+        }
+        #box3{
+            width: 100px;
+            height: 80px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="box1">
+        <div id="box2">
+            <div id="box3"></div>
+        </div>
+    </div>
+    <script>
+        var box1 = document.getElementById("box1");
+        var box2 = document.getElementById("box2");
+        var box3 = document.getElementById("box3");
+        var array = [box1, box2, box3];
+        for (var i = 0; i < array.length; i++) {
+            var box = array[i]
+            box.onclick = function(e){
+                console.log(this.id)
+               // console.dir(this);
+
+               //标准DOM方法
+                e.stopPropagation();
+               //老版本IE
+               //e.cancelBubble = true;
+            }
+        }
+    </script>
+</body>
+</html>

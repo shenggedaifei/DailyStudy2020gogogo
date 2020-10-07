@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input id="input" style="width: 100%;" />
+    <script>
+      window.onload = function () {
+        var nick = prompt("Enter your nickname"); //获取用户昵称
+        var input = document.getElementById("input");
+        input.focus(); //设置键盘焦点
+
+        //通过EventSource注册新消息的通知
+        var chat = new EventSource("/chat"); //返回一个服务器推送的一个网络事件接口对象：EventSource
+        chat.onmessage = function (event) {
+          //当捕获一条消息时
+          var msg = event.data; //从事件对象中取得文本数据
+          var node = document.createTextNode(msg); //把它放入一个文本节点
+          var div = document.createElement("div"); //创建一个div
+          div.appendChild(node); //将文本节点插入div中
+          document.body.insertBefore(div, input); //将div插入到input之前
+          input.scrollIntoView(); //保证input可见
+        };
+        //使用XMLHttpRequest把用户的消息发送给服务器
+        input.onchange = function () {
+          //用户完成输入
+          var msg = nick + ":" + input.value; //组合用户名和输入信息
+          var xhr = new XMLHttpRequest(); //创建新的XHR
+          xhr.open("POST", "/chat"); //发送到/chat
+          xhr.setRequestHeader("Content-Type", "text/plain;charset=UTF-8"); //指明为普通的UTF-8文本
+          xhr.send(null); //发送消息
+          input.value = ""; //准备下次输入
+        };
+      };
+    </script>
+  </body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            width: 300px;
+            height: 300px;
+            border: 2px solid red;
+            margin: 100px 10px 10px 100px;
+        }
+    </style>
+    <script src="./js/common.js"></script>
+</head>
+<body>
+    <div id="box"></div>
+    <script>
+        var box = document.getElementById("box");
+        box.onclick = function(e){
+            var e = e || window.event;
+            console.dir(this);
+            var x = getPage(e).pageX - this.offsetLeft;//this.offsetLeft能够获取盒子在页面上的坐标
+            var y = getPage(e).pageY - this.offsetTop;
+            console.log(this.offsetTop);
+            console.log(x+","+y);
+        }
+    </script>
+</body>
+</html>

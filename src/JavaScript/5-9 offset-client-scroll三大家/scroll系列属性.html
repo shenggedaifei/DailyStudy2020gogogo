@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0px;
+        }
+        #box{
+            width: 100px;
+            height: 100px;
+            margin: 50px;
+            border: 30px solid red;
+            padding: 10px;
+            background-color: green;
+            overflow: auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">啊哒哒哒我的期望自行车v你爸妈呢，没了，没看见变化过程发现实现阿三地方干部你后面就会哭一膏方的说法v</div>
+    <script>
+        var box = document.getElementById("box");
+        //box滚动出去的距离
+        console.log(box.scrollTop);//0
+        console.log(box.scrollLeft);//0
+
+        //内容的大小，包括padding和未显示的内容，不包括滚动条
+        console.log(box.scrollHeight);//230
+        console.log(box.scrollWidth);//103
+
+        box.onscroll = function(){
+            console.log(box.scrollTop);
+        }
+    </script>
+</body>
+</html>

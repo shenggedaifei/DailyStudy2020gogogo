@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box"></div>
+    <script>
+        //createElement在内存中创建一个DOM对象
+        var p = document.createElement('p');
+        p.innerText = 'hello..';
+        p.style.color = 'red';
+        var box = document.getElementById('box');
+        box.appendChild(p);
+        //appendChild()把对象加到DOM树上。
+        //console.dir(element)
+    </script>
+</body>
+</html>

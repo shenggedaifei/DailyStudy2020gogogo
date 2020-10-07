@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="go-back">Go Back!</button>
+    <script>
+        /**
+         * window的另一个属性history.是History对象的应用
+         */
+        //history.back()上一页.等价于history.go(-1)
+        window.onload = function(e){
+            document.getElementById("go-back").addEventListener("click",e=>{
+                window.history.back();
+            })
+        }
+
+        //history.forward()下一页，等价于hist.go(1)
+    </script>
+</body>
+</html>

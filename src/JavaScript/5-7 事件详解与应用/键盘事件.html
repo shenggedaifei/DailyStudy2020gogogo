@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="txt">
+    <script>
+        var txt = document.getElementById("txt");
+        txt.onkeydown = function(e){
+            e = e || window.event;
+            //这个判断，小键盘上的数字键是无效的
+            if((e.keyCode < 48 || e.keyCode > 57) && e.keyCode !== 8){
+                e.preventDefault();
+                //return false;
+            }
+        }
+    </script>
+</body>
+</html>

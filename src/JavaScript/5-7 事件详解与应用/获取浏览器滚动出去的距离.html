@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin-top: 500px;
+            margin-left: 1500px;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        document.onclick = function (e){
+            //处理兼容性问题
+            var scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
+            var scrollLeft = document.body.scrollLeft || document.documentElement.scrollLeft;
+            // console.log(document.body.scrollLeft);
+            // console.log(document.body.scrollTop);
+            // console.log(document.documentElement.scrollTop);
+            // console.log(document.documentElement.scrollLeft);
+            console.log(scrollTop);
+            console.log(scrollLeft);
+        }
+    </script>
+</body>
+</html>
