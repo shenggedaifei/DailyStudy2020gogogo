@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 1.将想要拖放的元素的draggable属性设为true。img元素和a元素默认允许拖放 -->
+    <!--2.编写与拖放有关的事件处理代码：
+        dragstart：开始拖放
+        drag：拖放过程中
+        dragenter：被拖放的元素开始进入本元素的范围内时触发。产生事件的元素是，拖放过程中鼠标经过的元素。dragleave
+        drop：有其他元素被拖放到本元素中，产生事件的元素是，拖放的目标元素。-->
+    <h1>简单拖放示例</h1>
+    <div
+      id="dragme"
+      draggable="true"
+      style="width: 200px; border: 1px solid gray"
+    >
+      请拖放
+    </div>
+    <div
+      id="text"
+      style="width: 200px; height: 200px; border: 1px solid gray"
+    ></div>
+  </body>
+  <script>
+    function init() {
+      var source = document.getElementById("dragme");
+      var dest = document.getElementById("text");
+      //拖放开始
+      source.addEventListener(
+        "dragstart",
+        function (e) {
+          //向dataTransfer对象追加数据
+          var dt = e.dataTransfer;
+          dt.effectAllowed = "all";
+          //拖动元素为dt.setData();
+          dt.setData("text/plain", "你好");
+        },
+        false
+      );
+      //拖放结束
+      dest.addEventListener(
+        "dragend",
+        function (e) {
+          //从DataTransfer对象哪里取得数据
+          e.preventDefault(); //不执行默认处理
+        },
+        false
+      );
+      //drop:被拖放
+      dest.addEventListener(
+        "drop",
+        function (e) {
+          //从DataTransfer对象哪里取得数据
+          var dt = e.dataTransfer;
+          var text = dt.getData("text/plain");
+          dest.textContent += text;
+          //不执行默认处理
+          e.preventDefault();
+          //停止事件传播
+          e.stopPropagation();
+        },
+        false
+      );
+      //设置页面属性，不执行默认处理
+      document.ondragover = function (e) {
+        e.preventDefault();
+      };
+      document.ondrop = function (e) {
+        e.preventDefault();
+      };
+    }
+  </script>
+</html>

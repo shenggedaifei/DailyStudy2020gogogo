@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- number也有min、max、valueAsNumber这几个属性 -->
+    <form action="">
+        <input type="number" name="" id="n1">+
+        <input type="number" name="" id="n2">=
+        <input type="number" name="" id="result" readonly>
+        <input type="button" value="计算" onclick="sum()">
+    </form>
+</body>
+<script>
+    function sum(){
+        var num1 = document.getElementById("n1").valueAsNumber;
+        var num2 = document.getElementById("n2").valueAsNumber;
+        document.getElementById("result").valueAsNumber = num1 + num2;
+    }
+</script>
+</html>

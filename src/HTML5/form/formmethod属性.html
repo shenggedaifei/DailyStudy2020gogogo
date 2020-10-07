@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 表单中所有元素都是按照表单的method属性来统一指定提交方法。 -->
+    <!-- formmethod属性就能实现分别指定不同的提交方法 -->
+    <form action="./form属性.html" method="GET">
+        姓名:<input type="text" name="name"/><br/>
+        <input type="submit" value="post方式提交" formmethod="POST">
+        <input type="submit" value="get方式提交" formmethod="GET">
+    </form>
+</body>
+</html>

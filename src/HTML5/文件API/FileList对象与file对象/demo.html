@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- multiple属性；file空间允许一次放置多个文件。 -->
+    <!-- name属性：文件名，不包括路径 -->
+    <!-- lastModifiedDate属性表示文件的最后修改日期 -->
+    选择文件：
+    <input type="file" name="" id="file" multiple size="80" /><br /><br />
+    <input type="button" value="文件上传" onclick="ShowFileName()" />
+  </body>
+  <script>
+    function ShowFileName() {
+      var file;
+      for (var i = 0; i < document.getElementById("file").files.length; i++) {
+        file = document.getElementById("file").files[i];
+        alert(file.name);
+        alert(file.lastModifiedDate);
+      }
+    }
+  </script>
+</html>

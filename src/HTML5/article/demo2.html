@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>article的嵌套使用</title>
+</head>
+<body>
+    <article>
+        <header>
+            <h1>苹果</h1>
+            <p>发表日期：
+                <time pubdate datetime="2020/09/09">2020/09/09</time>
+            </p>
+        </header>
+        <p>
+            <b>苹果</b>, 植物类水果, 多次花果...("苹果"文章正文)
+        </p>
+        <section>
+            <h2>评论</h2>
+            <article>
+                <header>
+                    <h3>发表者：lln</h3>
+                    <p>
+                        <time pubdate datetime="2020/09/09">1小时前</time>
+                    </p>
+                </header>
+                <p>
+                   我喜欢吃苹果，我最喜爱的品种是红富士。
+                </p>
+            </article>
+            <article>
+                <header>
+                    <h3>发表者：wls</h3>
+                    <p>
+                        <time pubdate datetime="2020/09/09">1小时前</time>
+                    </p>
+                </header>
+                <p>
+                   我喜欢吃苹果，我最喜爱的品种是橘子味苹果。
+                </p>
+            </article>
+        </section>
+    </article>
+    <time datetime="2020/09/09">2020年9月9日</time>
+    <time pubdate datetime="2020/09/09">2020年9月9日</time>
+    <time datetime="2010-11-13T20:00+09：00">我生日是晚上八点</time>
+</body>
+</html>

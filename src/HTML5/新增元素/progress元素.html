@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- progress代表一个任务的完成进度，这个进度可以是不确定的，也可以是精确进度的 -->
+    <section>
+      <h2>progress元素的使用示例</h2>
+      <p>
+        完成百分比：<progress id="p" max="10"><span>0</span>%</progress>
+        <progress value="" max="10"><span>0</span>%</progress>
+      </p>
+      <input type="button" onclick="btn_click()" value="请点击" />
+    </section>
+  </body>
+  <script>
+    // function btn_click() {
+    //   var pro = document.getElementById("p");
+    //   pro.getElementsByTagName("span")[0].textContent = "0";
+    //   for (var i = 0; i <= 100; i++) {
+    //     //updatePro(i);
+    //     //pro.getElementsByTagName("span")[0].textContent = i;
+    //   }
+    // }
+    // function updatePro(newValue) {
+    //   var pro = document.getElementById("p");
+    //   pro.value = newValue;
+    //   pro.getElementsByTagName("span")[0].textContent = newValue;
+    // }
+  </script>
+</html>

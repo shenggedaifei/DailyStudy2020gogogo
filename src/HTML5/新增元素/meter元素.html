@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 表示规定范围内的数量值。例如：磁盘使用量，投票人数占比等 -->
+    <!--min：最小值；
+    max：最大值；
+    low：规定范围下限值；
+    high：规定范围上限值；
+    optimum：最佳值。-->
+
+    <p>磁盘使用量：<meter value="40" min="0" max="160">40/160</meter>GB</p>
+    <p>
+      得分：
+      <meter value="91" min="0" max="100" low="40" high="90" optimum="100">
+        A+
+      </meter>
+    </p>
+    <!-- 不一定要使用属性 -->
+    <meter value="">80%</meter>
+    <meter value="">3/4</meter>
+  </body>
+</html>

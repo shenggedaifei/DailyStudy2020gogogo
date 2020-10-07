@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文本框的list属性</title>
+</head>
+<body>
+    <!-- datalist元素类似于selet，当用户想要设定的值不在选择列表之内时，允许自行输入。 -->
+    <input type="text" name="" list="list">
+    <datalist id="list" style="display: none;">
+        <option value="Good morning">Good morning</option>
+        <option value="Hello">Hello</option>
+        <option value="Good afternoon">Good afternoon</option>
+    </datalist>
+
+    <!-- <input type="text" name="" id="" list="select"> -->
+    <select name="" id="select">
+        <option value="name">name</option>
+        <option value="age" selected>age</option>
+        <option value="sex">sex</option>
+    </select>
+</body>
+</html>

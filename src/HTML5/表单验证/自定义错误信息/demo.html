@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>setCustomValidity方法-自定义错误信息示例</title>
+  </head>
+  <body>
+    <!-- Opera是目前唯一支持自定义错误信息提示 -->
+    <form action="" id="testform" onsubmit="return check();">
+      密码：<input type="password" name="pass1" id="pass1" /><br />
+      确认密码：<input type="password" name="pass2" id="pass2" /><br />
+      Email: <input type="email" name="email1" id="email1" /><br />
+      <input type="submit" value="提交" />
+    </form>
+  </body>
+  <script>
+    function check() {
+      var pass1 = document.getElementById("pass1");
+      var pass2 = document.getElementById("pass2");
+      if (pass1.value != pass2.value) {
+        pass2.setCustomValidity("密码不一致。");
+      } else {
+        pass2.setCustomValidity("");
+        var email = document.getElementById("email");
+        if (!email.checkValidity()) {
+          email.setCustomValidity("请输入正确的Email地址。");
+        }
+      }
+    }
+  </script>
+</html>

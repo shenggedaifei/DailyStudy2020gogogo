@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <canvas id="canvas" width="1000" height="1000"></canvas>
+  </body>
+  <script>
+    //绘制渐变
+    // createLinearGradient(x, y, x1, y1) - 创建线条渐变;
+    // createRadialGradient(x, y, r, x1, y1, r1);-创建园渐变；
+    // addcolorStop()-停止颜色
+    var c = document.getElementById("canvas");
+    //线性渐变
+    var con5 = c.getContext("2d");
+    //1.创建渐变
+    var lineGra = con5.createLinearGradient(250, 250, 350, 300);
+    lineGra.addColorStop(0, "red");
+    lineGra.addColorStop(1, "blue");
+    //填充渐变
+    con5.fillStyle = lineGra;
+    con5.fillRect(250, 250, 350, 300);
+
+    //圆渐变
+    var con6 = c.getContext("2d");
+    var radGra = con6.createRadialGradient(75, 50, 5, 90, 60, 100);
+    radGra.addColorStop(0, "red");
+    radGra.addColorStop(1, "white");
+    con6.fillStyle = radGra;
+    con6.fillRect(100, 100, 240, 240);
+  </script>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>selectionDirection属性</title>
+</head>
+
+<body>
+    <!-- 这个属性是指，当用户用鼠标正向选取文字时，该属性值为“forward”,
+        当用户反向选取文字时，该属性值为“backward” 
+        没有选取任何文字时，默认就是“forward”
+    -->
+    <form action="">
+        <input type="text" name="text" id="">
+        <input type="button" value="点击我" onclick="AlertSelectionDirection()">
+    </form>
+</body>
+<script>
+    function AlertSelectionDirection(){
+        var control = document.forms[0]["text"];//表示获取当前页面的第一个表单
+        var direction = control.selectionDirection;
+        alert(direction);
+    }
+</script>
+</html>

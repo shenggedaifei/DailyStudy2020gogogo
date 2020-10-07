@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 1. 创建画布 -->
+    <canvas
+      id="hb"
+      width="500"
+      height="500"
+      style="border: 1px solid gray"
+    ></canvas>
+    <!-- 2. 使用js脚本绘制图像 
+            2.1 获取canvas元素
+            2.2 创建context对象
+            2.3 绘制图像
+            2.4 设定图像样式
+    -->
+  </body>
+  <script>
+    var can = document.getElementById("hb");
+    var context = can.getContext("2d");
+    context.fillStyle = "#FF0000";
+    context.fillRect(0, 0, 150, 75);
+  </script>
+</html>

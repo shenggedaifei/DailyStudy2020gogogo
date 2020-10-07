@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 表单元素有一个enctype属性，用于指定在表单发送到服务器之前应该如何对表单内的数据进行编码 -->
+    <!-- 属性值：application/x-www-form-urlencoded、multipart/form-data、text/plain -->
+    
+    <!-- 使用formenctype属性可以实现对表单元素分别指定不同的编码方式 -->
+    <form action="./form属性.html">
+        <input type="text" name="name" id="" value="test"> <br/>
+        文件：<input type="file" name="files" id="">
+        <input type="submit" value="上传" formaction="./form属性.html" formenctype="multipart/form-data">
+        <input type="submit" value="提交">
+    </form>
+</body>
+</form>

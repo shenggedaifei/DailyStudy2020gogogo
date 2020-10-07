@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- max、min、step -->
+    <!-- valueAsDate、valueAsNumber 将日期转换成一个整数-->
+    <form action="">
+        <input type="date" name="" id="date">
+        <input type="button" value="点击我！" onclick="alert(document.getElementById('date').valueAsNumber)">
+    </form>
+</body>
+<script>
+    document.getElementById("date").valueAsDate = new Date();
+</script>
+</html>

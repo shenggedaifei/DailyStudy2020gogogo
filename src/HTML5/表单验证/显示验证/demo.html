@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>checkValidity方法</title>
+  </head>
+  <body>
+    <!-- checkValidity方法返回一个boolean值，可以显示地对表单内元素进行有效性验证 -->
+    <!-- validity属性--》返回一个ValidityState对象---》这个对象有个属性（valid）--》表示元素内容是否有效， -->
+    <form action="" id="testform" onsubmit="return check()">
+      <label for="email">Email</label>
+      <input type="email" name="email" id="email" /><br />
+      <input type="submit" value="提交" />
+    </form>
+  </body>
+  <script>
+    function check() {
+      var email = document.getElementById("email");
+      if (email.value === "") {
+        alert("请输入Email地址");
+        return false;
+      } else if (!email.checkValidity()) {
+        alert("请输入正确的Email地址");
+        return false;
+      } else {
+        alert("你输入的Email地址有效");
+      }
+    }
+  </script>
+</html>
